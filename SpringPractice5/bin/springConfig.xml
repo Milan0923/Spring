@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- bean defination -->
+	<!-- setter injection -->
+	<bean id="cust1" class="com.spring.model.Customer">
+		<property name="custId" value="101"></property>
+		<property name="custName" value="Milan"></property>
+		<property name="resAddress" ref="addr1"></property>
+		<property name="birthDate" ref="dt1"></property>
+	</bean>
+	<bean id="addr1" class="com.spring.model.Address">
+		<property name="city" value="Pune"></property>
+	</bean>
+	<bean id="dt1" class="com.spring.model.MyDate">
+		<property name="day" value="15"></property>
+		<property name="month" value="05"></property>
+		<property name="year" value="2005"></property>
+	</bean>
+	
+	<!-- ctor injection -->
+	<bean id="cust2" class="com.spring.model.Customer">
+		<constructor-arg name="custId" value="1004"></constructor-arg>
+		<constructor-arg name="custName" value="Prasoon"></constructor-arg>
+		<constructor-arg name="resAddress" ref="addr2"></constructor-arg>
+		<constructor-arg name="birthDate" ref="dt2"></constructor-arg>
+	</bean>
+	<bean id="addr2" class="com.spring.model.Address">
+		<constructor-arg name="city" value="Mumbai"></constructor-arg>
+	</bean>
+	<bean id="dt2" class="com.spring.model.MyDate">
+		<constructor-arg name="day" value="18"></constructor-arg>
+		<constructor-arg name="month" value="03"></constructor-arg>
+		<constructor-arg name="year" value="2002"></constructor-arg>
+	</bean>
+	
+</beans>
